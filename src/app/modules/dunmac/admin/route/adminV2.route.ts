@@ -24,7 +24,7 @@ import { addSubscriptionPackagesController } from '../controller/addSubscription
 import { editSubscriptionPackagesController } from '../controller/editSubscriptionPackages.controller';
 import { getTransactionDataController } from '../controller/getTransactionData.controller';
 import { getSingleTransactionDataController } from '../controller/getSingleTransactionData.controller';
-import { updateProfileController } from '../../auth_v2/controller/updateProfile.controller';
+import { updateProfileController } from '../../auth/controller/updateProfile.controller';
 import { updateGeneralInfoController } from '../controller/updateGeneralInfo.controller';
 import { getSingleUserDataController2 } from '../controller/getSingleUserData_2.controller';
 import { banUserController2 } from '../controller/banUser_2.controller';

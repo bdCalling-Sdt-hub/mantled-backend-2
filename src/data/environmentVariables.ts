@@ -13,6 +13,14 @@ const STRIPE_PUBLISHABLE_KEY_MANTLED =
   process.env.STRIPE_PUBLISHABLE_KEY_MANTLED;
 const STRIPE_SECRET_KEY_MANTLED = process.env.STRIPE_SECRET_KEY_MANTLED;
 const RAW_ENCRYPTION_KEY_MANTLED = process.env.RAW_ENCRYPTION_KEY_MANTLED;
+const CHAT_GPT_API_KEY = process.env.CHAT_GPT_API_KEY;
+const {
+  NODEMAILER_SERVICE_MANTLED,
+  NODEMAILER_USER_MANTLED,
+  NODEMAILER_PASSWORD_MANTLED,
+} = process.env;
+
+export const chatGptApiKey = CHAT_GPT_API_KEY;
 
 export const databaseUrlOfWeatherConsumerReport = `mongodb+srv://ar7:12345@cluster0.1g8wuka.mongodb.net/weather_consumer_report?retryWrites=true&w=majority`;
 const onlineDatabase1 = `mongodb+srv://ar7:12345@cluster0.1g8wuka.mongodb.net/mantled?retryWrites=true&w=majority`;
@@ -94,3 +102,22 @@ if (RAW_ENCRYPTION_KEY_MANTLED) {
 const rawEncryptionKey = rawEncryptionKey_;
 
 export const encryptionSecretKey = Buffer.from(rawEncryptionKey, 'hex');
+
+let nodemailerService_ = 'gmail';
+if (NODEMAILER_SERVICE_MANTLED) {
+  nodemailerService_ = NODEMAILER_SERVICE_MANTLED;
+}
+export const nodemailerService = nodemailerService_;
+
+let nodemailerUser_ = 'apurboroy7077@gmail.com';
+if (NODEMAILER_USER_MANTLED) {
+  nodemailerUser_ = NODEMAILER_USER_MANTLED;
+}
+export const nodemailerUser = nodemailerUser_;
+
+let nodemailerPass_ = 'zijolyhlxxjydndu';
+if (NODEMAILER_PASSWORD_MANTLED) {
+  nodemailerPass_ = NODEMAILER_PASSWORD_MANTLED;
+}
+
+export const nodemailerPass = nodemailerPass_;
