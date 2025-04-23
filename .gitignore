@@ -4,3 +4,4 @@ dist
 /winston
 .env
 public
+/online_server_info
