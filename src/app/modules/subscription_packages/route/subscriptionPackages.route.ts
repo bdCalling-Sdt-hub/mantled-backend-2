@@ -4,6 +4,7 @@ import { buySubscriptionPackagesController } from '../controller/buySubscription
 import { saveNewSubscriptionPackagesController } from '../controller/saveNewTransactionData.controller';
 import { getSingleSubscriptionPackagesController } from '../controller/getSingleSubscriptionPackages.controller';
 import { completeSubscriptionInFrontendController } from '../controller/completeSubscriptionInFrontendAndSendPaymentDataInBackend.controller';
+import { checkIfSubscribedController } from '../controller/checkIfSubscribed.controller';
 
 const subscriptionPackagesRouter = express.Router();
 
@@ -14,6 +15,10 @@ subscriptionPackagesRouter.post('/save', saveNewSubscriptionPackagesController);
 subscriptionPackagesRouter.post(
   '/complete-subscription-payment-from-the-frontend-and-send-payment-data-to-backend',
   completeSubscriptionInFrontendController
+);
+subscriptionPackagesRouter.post(
+  '/check-if-user-is-subscribed',
+  checkIfSubscribedController
 );
 
 export { subscriptionPackagesRouter };

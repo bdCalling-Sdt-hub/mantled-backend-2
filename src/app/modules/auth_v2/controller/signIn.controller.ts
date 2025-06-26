@@ -9,8 +9,10 @@ import {
   checkIsBanned,
   checkIsBanned2,
 } from '../../../../helpers_v2/auth/checkIsBanned.helper';
+import { checkIsSubscribed } from '../../../../helpers_v2/subscription/checkSubscriptionWithUserId.helper';
 
-export const signInController = myControllerHandler(async (req, res) => {
+const sendResponseFinal: any = sendResponse2;
+export const signInController: any = myControllerHandler(async (req, res) => {
   await checkIsBanned2(req);
 
   const { email, password } = req.body;
@@ -47,11 +49,21 @@ export const signInController = myControllerHandler(async (req, res) => {
   const bearerToken = `Bearer ${jwtToken}`;
   // wipe password hash
   userData2.passwordHash = '';
+  const isSubscribed = await checkIsSubscribed(userData2.id);
 
-  return sendResponse2(res, {
-    code: StatusCodes.OK,
-    message: 'Signed in successfully',
+  // return sendResponseFinal(res, {
+  //   code: StatusCodes.OK,
+  //   message: 'Signed in successfully',
+  //   data: userData2,
+  //   token: bearerToken,
+  //   isSubscribed,
+  // });
+  return res.status(200).json({
     data: userData2,
     token: bearerToken,
+    statusCode: 200,
+    message: 'Signed in successfully',
+    success: true,
+    isSubscribed,
   });
 });
